@@ -16,31 +16,62 @@
 
 // }
 
-const nestedArr = [1, 2, [3, 4, 5, [6, [7]]]];
+// const nestedArr = [1, 2, [3, 4, 5, [6, [7]]]];
 
-function flatten(arr, depth) {
-  return function () {
-    if (depth > 0) {
-      return flatten(arr.flat(1), depth - 1);
-    } else {
-      return arr;
+// function flatten(arr, depth) {
+//   return function () {
+//     if (depth > 0) {
+//       return flatten(arr.flat(1), depth - 1);
+//     } else {
+//       return arr;
+//     }
+//   };
+// }
+
+// console.log(flatten(nestedArr, 5))
+
+// function trampoline(fn) {
+//   let result = fn;
+
+//   while (typeof result === "function") {
+//     result = result();
+//   }
+
+//   return result;
+// }
+
+// console.log(trampoline(flatten(nestedArr, 5)));
+
+let header = document.querySelector("h1")
+
+function calculateIfPrime(n) {
+
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      return false;
     }
-  };
-}
-
-console.log(flatten(nestedArr, 5))
-
-function trampoline(fn) {
-  let result = fn;
-
-  while (typeof result === "function") {
-    result = result();
+    } 
+    return true;
   }
 
-  return result;
+
+let pushedArray = [];
+
+function pushInArray(n) {
+  for (let i = 2; i < n; i++) {
+    if (calculateIfPrime(i)) {
+      pushedArray.push(i.toString());
+    }
+  }
 }
 
-console.log(trampoline(flatten(nestedArr, 5)));
+pushInArray(5500)
+
+
+let newEl = document.createElement('h2')
+newEl.textContent = pushedArray
+header.appendChild(newEl)
+
 
 
 
