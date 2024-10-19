@@ -65,12 +65,13 @@ function pushInArray(n) {
   }
 }
 
-pushInArray(5500)
+pushInArray(1000)
 
 
 let newEl = document.createElement('h2')
 newEl.textContent = pushedArray
 header.appendChild(newEl)
+alert("Calculations are complete!")
 
 
 
